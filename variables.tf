@@ -19,8 +19,8 @@ variable "members" {
   default     = []
 
   validation {
-    condition     = alltrue([for m in var.members : can(regex("^(allUsers|allAuthenticatedUsers|(user|serviceAccount|group|domain|projectOwner|projectEditor|projectViewer|computed|principal):)", m))])
-    error_message = "The value must be a non-empty list of strings where each entry is a valid principal type identified with `user:`, `serviceAccount:`, `group:`, `domain:`, `projectOwner:`, `projectEditor:`, `projectViewer:`, `computed` or `principal://`."
+    condition     = alltrue([for m in var.members : can(regex("^(allUsers|allAuthenticatedUsers|(user|serviceAccount|group|domain|projectOwner|projectEditor|projectViewer|computed|principal|principalSet):)", m))])
+    error_message = "The value must be a non-empty list of strings where each entry is a valid principal type identified with `user:`, `serviceAccount:`, `group:`, `domain:`, `projectOwner:`, `projectEditor:`, `projectViewer:`, `computed`, `principal` or `principalSet`."
   }
 }
 
